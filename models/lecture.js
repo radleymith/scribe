@@ -4,7 +4,7 @@ var mongoose = require('mongoose');
 
 var schema = mongoose.Schema({
     courseId: String,
-    vName: String,
+    name: String,
     description: String,
     uuid: String,
     uploadDate: Date,

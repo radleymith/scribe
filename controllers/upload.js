@@ -13,6 +13,7 @@ function initWaterfall(initParam) {
 }
 
 module.exports.uploadVideo = function(req, res) {
+    console.log(req.body);
     var lect = new LectureModel();
     transcriber.transcribe(req.files.video.path, function (err, lectureId) {
         if (err) {
@@ -23,7 +24,7 @@ module.exports.uploadVideo = function(req, res) {
             lect.courseId = 'Undefined';
             lect.uuid = lectureId;
             lect.description = req.body.description;
-            lect.vName = req.body.vname;
+            lect.name = req.body.vname;
             lect.uploadDate = new Date();
 
             res.render('upload', {
