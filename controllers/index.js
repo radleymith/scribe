@@ -13,4 +13,5 @@ module.exports = function(server) {
 
     server.post('/upload', uploadController.uploadVideo);
     server.get('/lectures', lectureController.getAllLectures);
+    server.get('/lectures/:guid', lectureController.getLectureByGuid);
 };
