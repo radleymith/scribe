@@ -11,6 +11,7 @@ function initWaterfall (initParam) {
 }
 
 module.exports.uploadVideo = function (req, res) {
+    console.log(req.body);
     async.waterfall([
         initWaterfall(req.files.video.path), // Inject the vid file path into waterfall
         transcriber.transcribe, // Transcribe the video
