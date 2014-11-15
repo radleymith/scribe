@@ -4,9 +4,11 @@ var mongoose = require('mongoose');
 
 var schema = mongoose.Schema({
     courseId: String,
+    vName: String,
+    description: String,
     uuid: String,
     lectureDate: Date,
-    transcript: Array
+    transcript: Object
 });
 
 module.exports = mongoose.model('Lecture', schema);
