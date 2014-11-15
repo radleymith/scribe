@@ -12,6 +12,13 @@
     <script data-main="/js/app" src="/scribe/components/requirejs/require.js"></script>
     <script type="text/javascript" src="/scribe/components/underscore/underscore-min.js"></script>
     <script type="text/javascript" href="/scribe/components/bootstrap/dist/js/bootstrap.js"></script>
+    <script type="text/javascript" src="/scribe/components/angular/angular.js"></script>
+    <script type="text/javascript" src="/scribe/components/jquery/jquery.js"></script>
+    <script type="text/javascript" src="/scribe/components/jquery-ui/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="/scribe/components/jquery-ui/jquery-ui-1.10.4.js"></script>
+    <script type="text/javascript" src="/scribe/components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script type="text/javascript" src="/scribe/components/angular-resource/angular-resource.js"></script>
+    <script type="text/javascript" src="/scribe/components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
 
     <!--<script type="text/javascript" src="/scribe/components/angular"/-->
 </body>
