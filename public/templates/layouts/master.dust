@@ -12,7 +12,9 @@
     <div class="navbar">
         <h1 class="navbar-text">Scribe</p>
     </div>
+    <div id="header-block"></div>
     {+body /}
+    <div id="footer-block"></div>
     <div id="footer">
         <ul>
             <li>Scribe v.{version} </li>
