@@ -1,0 +1,29 @@
+{<headerIncludes}
+    <link rel="stylesheet" href="/scribe/css/index.css"></link>
+{/headerIncludes}
+
+{<body}
+    <div class="navbar">
+        <h1 class="navbar-text">Scribe</p>
+    </div>
+    <div id="lecture-container" class="well well-lg">
+        <ul id="lecture-segment-list">
+            {#lecture_segments}
+                <li>
+                    <div class="lecture-timestamp">
+                        {lecture_segment.timestamp}
+                    </div>
+                    <div class="lecture-segment-text">
+                        {lecture_segment.segment_text}
+                    </div>
+                </li>
+            {/lecture_segments}
+        </ul>
+    </div>
+
+    <div id="footer">
+        <ul>
+            <li>Scribe v.{version} </li>
+        </ul>
+    </div>
+{/body}
