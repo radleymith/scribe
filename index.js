@@ -4,7 +4,7 @@
 var kraken = require('kraken-js'),
     app = require('express')(),
     options = require('./lib/spec')(app),
-    mongoose = require('mongoose');
+    mongoose = require('mongoose'),
     port = process.env.PORT || 8000;
 
 mongoose.connect('mongodb://localhost/scribe');
