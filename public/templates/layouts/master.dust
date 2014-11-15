@@ -10,7 +10,9 @@
 </head>
 <body>
     <div class="navbar">
-        <h1 class="navbar-text">Scribe</p>
+        <h1 class="navbar-text"><a href="/scribe">Scribe</a></h1>
+        <a href="/scribe" class="btn btn-link btn-sm navbar-btn">home</a>
+        <a href="/scribe/lectures" class="btn btn-link btn-sm navbar-btn">Browse Video Transcripts</a>
     </div>
     <div id="header-block"></div>
     {+body /}
