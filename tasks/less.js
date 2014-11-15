@@ -9,16 +9,11 @@ module.exports = function less(grunt) {
 	return {
 	    build: {
             options: {
-                cleancss: false
+                yuicompress: true,
+                paths: ['public/css']
             },
-            build: {
-                files: [{
-                    expand: true,
-                    cwd: 'public/css',
-                    src: ['**/*.less'],
-                    dest: '.build/css/',
-                    ext: '.css'
-                }]
+            files: {
+                'public/css/index.css': 'public/css/index.less'
             }
 	    }
 	};
