@@ -1,0 +1,8 @@
+{
+  "name": "scribe",
+  "version": "0.0.1",
+  "dependencies": {
+    "requirejs": "~2.1.10",
+    "ng-grid": "~2.0.7"
+  }
+}
