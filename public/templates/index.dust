@@ -5,9 +5,6 @@
 {/headerIncludes}
 
 {<body}
-	<div class="navbar">
-	    <h1 class="navbar-text">Scribe</p>
-	</div>
     <div id="information-block">
         <h2>Welcome to Scribe!</h2>
         <p>
@@ -33,9 +30,4 @@
             <div class="clearfix"></div>
         </form>
     </div>
-	<div id="footer">
-		<ul>
-			<li>Scribe v.{version} </li>
-		</ul>
-	</div>
 {/body}

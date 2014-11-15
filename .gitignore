@@ -30,5 +30,8 @@ node_modules
 # Users Environment Variables
 .lock-wscript
 
-# Build folter
+# Build folder
 .build
+
+# Rendered CSS
+public/css/*.css
