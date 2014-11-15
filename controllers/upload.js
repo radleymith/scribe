@@ -1,47 +1,70 @@
 'use strict';
 
-var async = require('async'),
+var pkg = require('../package.json'),
+    async = require('async'),
     LectureModel = require('../models/lecture'),
     transcriber = require('../lib/transcriber'),
-    messaging = require('../lib/messaging'),
-    fs = require('fs');
+    messaging = require('../lib/messaging');
 
-function initWaterfall (initParam) {
-    return function (callback) { callback(null, initParam); };
+function initWaterfall(initParam) {
+    return function(callback) {
+        callback(null, initParam);
+    };
 }
 
-module.exports.uploadVideo = function (req, res) {
-    console.log(req.body);
+function saveLectureMetadata(data, callback) {
+    var lect = new LectureModel();
+    lect.courseId = data.name || 'Undefined';
+    lect.uuid = data.id;
+    lect.lectureDate = data.date = new Date();
+
+    lect.save(function(err, res) {
+        callback(err, data);
+    });
+}
+
+function sendEmail(data, callback) {
+    var email = data.email,
+        url = 'http://localhost:8000/scribe/lectures/' + data.id;
+
+    if (email) {
+        messaging.sendEmail(email, url, function(err, res) {
+            callback(err, data);
+        });
+    } else {
+        callback(null, data);
+    }
+}
+
+module.exports.uploadVideo = function(req, res) {
     async.waterfall([
         initWaterfall(req.files.video.path), // Inject the vid file path into waterfall
         transcriber.transcribe, // Transcribe the video
-        function saveLectureMetadata (lectureId, callback) {
-            var lect = new LectureModel();
-            lect.courseId = 'Undefined';
-            lect.uuid = lectureId;
-            lect.description = req.body.description;
-            lect.vName = req.body.vName;
-            lect.lectureDate = new Date();
-            lect.transcript = transcriber.readTranscript(lectureId);
-
-            lect.save(function (err, res) {
-                callback(err, lectureId);
+        function(lectureId, callback) {
+            callback(null, {
+                id: lectureId,
+                name: req.body.vname,
+                email: req.body.email,
+                phone: req.body.phone,
+                description: req.body.description
             });
-        }, // Save the lecture metadata to mongo, need req in scope
-        function sendEmail (lectureId, callback) {
-            var email = req.body.email,
-                url = 'http://localhost:8000/scribe/lectures/' + lectureId;
-
-            if (email) {
-                messaging.sendEmail(email, url, function (err, res) {
-                    callback(err, lectureId);
-                });
-            } else {
-                callback(null, lectureId);
-            }
-        } // Send a notification email to the user.
-        ], function (err, lectureId) {
-            res.send(err || lectureId);
+        },
+        saveLectureMetadata, // Save the lecture metadata to mongo
+        sendEmail // Send a notification email to the user.
+    ], function(err, data) {
+        if (err) {
+            res.send(err);
             res.end();
-        });
+        } else {
+            res.render('upload', {
+                lecture: {
+                    vname: data.name,
+                    guid: data.id,
+                    date: data.date,
+                    description: data.description
+                },
+                version: pkg.version
+            });
+        }
+    });
 };

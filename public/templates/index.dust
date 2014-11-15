@@ -9,8 +9,8 @@
         <h2>Welcome to Scribe!</h2>
         <p>
             Scribe is a new service for extracting text from videos. To get started with scribe, fill out the form below
-            with your video file as well as your e-mail address. When we are done extracting the text, we will send you
-            an e-mail with a link to the transcript!
+            {~s}with your video file as well as your e-mail address. When we are done extracting the text, we will send
+            {~s}you an e-mail with a link to the transcript!
         </p>
     </div>
     <div id="video-upload-form" class="well well-lg">
@@ -21,11 +21,6 @@
                 <p class="help-block">Currently only mp4 files are supported</p>
             </div>
             <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" name="name" class="form-control" id="name-input"
-                    placeholder="Enter Name" />
-            </div>
-            <div class="form-group">
                 <label for="email">Email Address</label>
                 <input type="email" name="email" class="form-control" id="email-input"
                     placeholder="Enter email address" />
@@ -33,11 +28,16 @@
             <div class="form-group">
                 <label for="phone">Phone Number</label>
                 <input type="text" name="name" class="form-control" id="phone-input"
-                    placeholder="Enter Phone Number" />
+                    placeholder="Enter phone number" />
             </div>
             <div class="form-group">
-                <label for="description">Description</label>
-                <textarea class="form-control" name="description" rows="3" placeholder="Enter Description"></textarea>
+                <label for="name">Video Name</label>
+                <input type="text" name="vname" class="form-control" id="name-input"
+                    placeholder="Enter a short name for the video" />
+            </div>
+            <div class="form-group">
+                <label for="description">Video Description</label>
+                <textarea class="form-control" name="description" rows="3" placeholder="Enter a description"></textarea>
             </div>
 
             <button type="submit" class="btn btn-primary pull-right">Submit</button>
