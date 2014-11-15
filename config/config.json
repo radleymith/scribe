@@ -2,17 +2,18 @@
 
     "express": {
         "view cache": false,
-        "view engine": "js",
-        "views": "path:./.build/templates"
+        "view engine": "dust",
+        "views": "path:./public/templates",
+        "mountpath": "/scribe"
     },
 
     "view engines": {
-        "js": {
+        "dust": {
             "module": "engine-munger",
             "renderer": {
-                "method": "js",
+                "method": "dust",
                 "arguments": [
-                    { "cache": true, "helpers": ["dustjs-helpers"] },
+                    { "cache": false, "helpers": ["dustjs-helpers"] },
                     {
                         "views": "config:express.views",
                         "view engine": "config:express.view engine",
@@ -40,6 +41,22 @@
             }
         },
 
+        "appsec": {
+            "enabled": true,
+            "priority": 110,
+            "module": {
+                "name": "lusca",
+                "arguments": [
+                    {
+                        "csrf": false,
+                        "xframe": "SAMEORIGIN",
+                        "p3p": false,
+                        "csp": false
+                    }
+                ]
+            }
+        },
+
         "router": {
             "module": {
                 "arguments": [{ "directory": "path:./controllers" }]
@@ -61,6 +78,17 @@
             "module": {
                 "name": "kraken-js/middleware/500",
                 "arguments": [ "errors/500" ]
+            }
+        },
+
+        "multer": {
+            "enabled": "true",
+            "priority": 150,
+            "module": {
+                "name": "multer",
+                "arguments": [{
+                    "dest": "./temp/"
+                }]
             }
         }
 

@@ -6,9 +6,7 @@ var kraken = require('kraken-js'),
     options = require('./lib/spec')(app),
     port = process.env.PORT || 8000;
 
-
 app.use(kraken(options));
-
 
 app.listen(port, function (err) {
     console.log('[%s] Listening on http://localhost:%d', app.settings.env, port);
