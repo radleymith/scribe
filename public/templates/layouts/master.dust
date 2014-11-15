@@ -5,10 +5,20 @@
     <title>{+title /}</title>
     <link rel="stylesheet" href="/scribe/components/bootstrap/dist/css/bootstrap.css"></link>
     <link rel="stylesheet" href="/scribe/components/bootstrap/dist/css/bootstrap-theme.css"></link>
+    <link rel="stylesheet" href="/scribe/css/global.css"></link>
     {+headerIncludes /}
 </head>
 <body>
+    <div class="navbar">
+        <h1 class="navbar-text">Scribe</p>
+    </div>
     {+body /}
+    <div id="footer">
+        <ul>
+            <li>Scribe v.{version} </li>
+        </ul>
+    </div>
+
     <script data-main="/js/app" src="/scribe/components/requirejs/require.js"></script>
     <script type="text/javascript" src="/scribe/components/underscore/underscore-min.js"></script>
     <script type="text/javascript" href="/scribe/components/bootstrap/dist/js/bootstrap.js"></script>
