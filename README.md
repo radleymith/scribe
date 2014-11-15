@@ -1,4 +1,3 @@
-scribe
-======
+# Scribe
 
-baltimore hackathon pyahhh
+Web app for transcribing and managing text lectures.
