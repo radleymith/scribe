@@ -1,0 +1,35 @@
+{>"layouts/master" /}
+{<title}Scribe - Available Lectures{/title}
+{<headerIncludes}
+    <link rel="stylesheet" href="/scribe/css/list-lectures.css"></link>
+{/headerIncludes}
+
+{<body}
+    <div class="container-fluid">
+        {#model}
+
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Upload Date</th>
+                        <th>Link</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {#lectures}
+                        <tr>
+                            <td>{vName}</td>
+                            <td>{description}</td>
+                            <td>{lectureDate}</td>
+                            <td><a href="{link}">Link</a></td>
+                        </tr>
+                    {/lectures}
+                </tbody>
+            </table>
+
+        {/model}
+    </div>
+
+{/body}
