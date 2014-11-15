@@ -9,19 +9,22 @@
     "start": "node index.js"
   },
   "dependencies": {
+    "async": "^0.9.0",
+    "body-parser": "^1.9.2",
     "dustjs-helpers": "^1.4.0",
     "engine-munger": "^0.2.2",
     "express": "^4.1.0",
+    "grunt-config-dir": "^0.3.2",
     "kraken-devtools": "1.0.0",
     "kraken-js": "^1.0.3",
-    "grunt-config-dir": "^0.3.2",
     "less": "^2.0.0",
     "localizr": "^1.0.0",
+    "mailgun": "^0.5.0",
+    "mongoose": "^3.8.19",
+    "multer": "^0.1.6",
     "node-uuid": "^1.4.1",
     "shelljs": "^0.3.0",
-    "async": "^0.9.0",
-    "multer": "^0.1.6",
-    "mongoose": "^3.8.19"
+    "twilio": "^1.8.0"
   },
   "devDependencies": {
     "mocha": "^1.18.0",
