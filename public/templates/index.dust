@@ -20,6 +20,15 @@
                 <input type="file" name="video" id="video-input" />
                 <p class="help-block">Currently only mp4 files are supported</p>
             </div>
+            <div class="form-group dropdown">
+                <label for="video">Category</label>
+                <select class="form-control" name="category" id="category-input">
+                    <option value="NA">None</option>
+                    {#categories}
+                        <option value="{code}">{name}</option>
+                    {/categories}
+                </select>
+            </div>
             <div class="form-group">
                 <label for="email">Email Address</label>
                 <input type="email" name="email" class="form-control" id="email-input"

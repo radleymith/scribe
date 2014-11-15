@@ -2,11 +2,13 @@
 
 var pkg = require('../package.json'),
     uploadController = require('./upload'),
-    lectureController = require('./lectures');
+    lectureController = require('./lectures'),
+    lectureCategories = require('../models/lectureCategories');
 
 module.exports = function(server) {
     server.get('/', function(req, res) {
         res.render('index', {
+            categories: lectureCategories,
             version: pkg.version
         });
     });

@@ -1,0 +1,26 @@
+[
+    {
+        "code": "MATH",
+        "name": "Mathematics"
+    },
+    {
+        "code": "BIO",
+        "name": "Biology"
+    },
+    {
+        "code": "CS",
+        "name": "Computer Science"
+    },
+    {
+        "code": "PHYS",
+        "name": "Physics"
+    },
+    {
+        "code": "EE",
+        "name": "Electrical Engineering"
+    },
+    {
+        "code": "CE",
+        "name": "Computer Engineering"
+    }
+]

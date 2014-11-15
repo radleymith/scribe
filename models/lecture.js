@@ -8,7 +8,8 @@ var schema = mongoose.Schema({
     description: String,
     uuid: String,
     uploadDate: Date,
-    transcript: Object
+    categories: Array,
+    transcript: Array
 });
 
 module.exports = mongoose.model('Lecture', schema);
