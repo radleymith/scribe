@@ -1,7 +1,7 @@
 'use strict';
 
 var LectureModel = require('../models/lecture'),
-    pkg = require('../package.json'),;
+    pkg = require('../package.json');
 
 module.exports.getAllLectures = function (req, res) {
     LectureModel.find(function (err, lectures) {
