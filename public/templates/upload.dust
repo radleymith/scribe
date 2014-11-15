@@ -6,30 +6,32 @@
 
 {<body}
 
-    <div id="information-block">
-        <h2>Welcome to Scribe!</h2>
+    <div id="thank-you">
+        <h2>Thank you for using Scribe!</h2>
         <p>
-            Scribe is a new service for extracting text from videos. To get started with scribe, fill out the form below
-            with your video file as well as your e-mail address. When we are done extracting the text, we will send you
-            an e-mail with a link to the transcript!
+            Your video file is being processed. When the processing is complete you will be able to view your transcript
+            {~s}either by finding your confirmation number in the lectures list or through the link sent to your email
+            {~s}or phone (if you provided that information).
         </p>
     </div>
-    <div id="video-upload-form" class="well well-lg">
-        <form role="form" action="/scribe/upload" method="post" enctype="multipart/form-data">
-            <div class="form-group">
-                <label for="video">Video File</label>
-                <input type="file" name="video" id="video-input" />
-                <p class="help-block">Currently only mp4 files are supported</p>
+    <div id="confirmation" class="well well-lg">
+        <div class="container-fluid">
+            <div class="row">
+                <label class="col-md-4">Video Name</label>
+                <div class="col-md-8">{lecture.vname}</div>
             </div>
-            <div class="form-group">
-                <label for="email">Email Address</label>
-                <input type="email" name="email" class="form-control" id="email-input"
-                    placeholder="Enter email address" />
+            <div class="row">
+                <label class="col-md-4">Confirmation Number</label>
+                <div class="col-md-8">{lecture.guid}</div>
             </div>
-
-            <button type="submit" class="btn btn-primary pull-right">Submit</button>
-            <div class="clearfix"></div>
-        </form>
+            <div class="row">
+                <label class="col-md-4">Date Processed</label>
+                <div class="col-md-8">{lecture.date}</div>
+            </div>
+            <div class="row">
+                <label class="col-md-4">Description</label>
+                <div class="col-md-8">{lecture.description}</div>
+            </div>
+        </div>
     </div>
-
 {/body}

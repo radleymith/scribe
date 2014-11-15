@@ -1,16 +1,18 @@
 'use strict';
 
-var async = require('async'),
+var pkg = require('../package.json'),
+    async = require('async'),
     LectureModel = require('../models/lecture'),
     transcriber = require('../lib/transcriber'),
-    messaging = require('../lib/messaging'),
-    fs = require('fs');
+    messaging = require('../lib/messaging');
 
-function initWaterfall (initParam) {
-    return function (callback) { callback(null, initParam); };
+function initWaterfall(initParam) {
+    return function(callback) {
+        callback(null, initParam);
+    };
 }
 
-module.exports.uploadVideo = function (req, res) {
+module.exports.uploadVideo = function(req, res) {
     async.waterfall([
         initWaterfall(req.files.video.path), // Inject the vid file path into waterfall
         transcriber.transcribe, // Transcribe the video
@@ -38,9 +40,21 @@ module.exports.uploadVideo = function (req, res) {
             } else {
                 callback(null, lectureId);
             }
-        } // Send a notification email to the user.
-        ], function (err, lectureId) {
-            res.send(err || lectureId);
+        } // Send a notification email to the user.    
+    ], function(err, data) {
+        if (err) {
+            res.send(err);
             res.end();
-        });
+        } else {
+            res.render('upload', {
+                lecture: {
+                    vname: data.name,
+                    guid: data.id,
+                    date: data.date,
+                    description: data.description
+                },
+                version: pkg.version
+            });
+        }
+    });
 };
