@@ -19,7 +19,8 @@
     "localizr": "^1.0.0",
     "node-uuid": "^1.4.1",
     "shelljs": "^0.3.0",
-    "async": "^0.9.0"
+    "async": "^0.9.0",
+    "mongoose": "^3.8.19"
   },
   "devDependencies": {
     "mocha": "^1.18.0",
