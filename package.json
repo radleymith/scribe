@@ -13,7 +13,10 @@
     "engine-munger": "^0.2.2",
     "express": "^4.1.0",
     "kraken-devtools": "1.0.0",
-    "kraken-js": "^1.0.3"
+    "kraken-js": "^1.0.3",
+    "grunt-config-dir": "^0.3.2",
+    "less": "^2.0.0",
+    "localizr": "^1.0.0"
   },
   "devDependencies": {
     "mocha": "^1.18.0",

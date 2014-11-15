@@ -1,3 +1,7 @@
 module.exports = function (server) {
-    // TODO stuff
+    server.get('/', function (req, res) {
+        res.json({
+            some: "Stuff"
+        });
+    });
 };
