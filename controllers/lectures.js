@@ -4,7 +4,12 @@ var LectureModel = require('../models/lecture'),
     pkg = require('../package.json');
 
 module.exports.getAllLectures = function (req, res) {
-    LectureModel.find(function (err, lectures) {
+    var filter = {};
+    if (req.query.category) {
+        filter.categories = req.query.category;
+    }
+
+    LectureModel.find(filter, function (err, lectures) {
         var model = { version: pkg.version, model: { lectures: lectures }};
         model.model.lectures.forEach(function (lecture) {
             lecture.link = 'http://localhost:8000/scribe/lectures/' + lecture.uuid;
