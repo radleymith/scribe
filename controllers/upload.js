@@ -13,7 +13,6 @@ function initWaterfall(initParam) {
 }
 
 module.exports.uploadVideo = function(req, res) {
-    console.log(req.body);
     var lect = new LectureModel();
     transcriber.transcribe(req.files.video.path, function (err, lectureId) {
         if (err) {
