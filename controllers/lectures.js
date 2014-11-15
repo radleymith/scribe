@@ -1,7 +1,7 @@
 'use strict';
 
 var LectureModel = require('../models/lecture'),
-    pkg = require('../package.json'),;
+    pkg = require('../package.json');
 
 module.exports.getAllLectures = function (req, res) {
     LectureModel.find(function (err, lectures) {
@@ -10,9 +10,10 @@ module.exports.getAllLectures = function (req, res) {
 };
 
 module.exports.getLectureByGuid = function (req, res) {
-    LectureModel.findById(req.id, function (err, lecture) {
+    console.log(JSON.stringify(req.guid));
+    LectureModel.findById(req.guid, function (err, lecture) {
         if (!err) {
-            res.render('text_view', {version: pkg.version, lecture: lecture});
+            res.render('lecture_view', {version: pkg.version, lecture: lecture});
         }
     });
 };
