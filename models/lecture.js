@@ -8,6 +8,7 @@ var schema = mongoose.Schema({
     description: String,
     uuid: String,
     uploadDate: Date,
+    categories: Array,
     transcript: Object
 });
 

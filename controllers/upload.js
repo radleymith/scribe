@@ -25,7 +25,8 @@ module.exports.uploadVideo = function(req, res) {
             lect.description = req.body.description;
             lect.name = req.body.vname;
             lect.uploadDate = new Date();
-
+            lect.categories = [req.body.category];
+            console.log(req.body)
             res.render('upload', {
                 lecture: {
                     vname: lect.name,
