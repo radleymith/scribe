@@ -21,9 +21,23 @@
                 <p class="help-block">Currently only mp4 files are supported</p>
             </div>
             <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" name="name" class="form-control" id="name-input"
+                    placeholder="Enter Name" />
+            </div>
+            <div class="form-group">
                 <label for="email">Email Address</label>
                 <input type="email" name="email" class="form-control" id="email-input"
                     placeholder="Enter email address" />
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="text" name="name" class="form-control" id="phone-input"
+                    placeholder="Enter Phone Number" />
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea class="form-control" name="description" rows="3" placeholder="Enter Description"></textarea>
             </div>
 
             <button type="submit" class="btn btn-primary pull-right">Submit</button>
