@@ -7,7 +7,7 @@ var schema = mongoose.Schema({
     vName: String,
     description: String,
     uuid: String,
-    lectureDate: Date,
+    uploadDate: Date,
     transcript: Object
 });
 
