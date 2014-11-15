@@ -20,7 +20,7 @@
                 <tbody>
                     {#lectures}
                         <tr>
-                            <td>{vName}</td>
+                            <td>{courseId}</td>
                             <td>{description}</td>
                             <td>{lectureDate}</td>
                             <td><a href="{link}">Link</a></td>
