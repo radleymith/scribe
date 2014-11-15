@@ -13,7 +13,9 @@ module.exports = function less(grunt) {
                 paths: ['public/css']
             },
             files: {
-                'public/css/index.css': 'public/css/index.less'
+                'public/css/index.css': 'public/css/index.less',
+				'public/css/global.css': 'public/css/global.less',
+				'public/css/upload.css': 'public/css/upload.less'
             }
 	    }
 	};
