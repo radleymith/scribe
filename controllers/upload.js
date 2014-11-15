@@ -12,59 +12,53 @@ function initWaterfall(initParam) {
     };
 }
 
-function saveLectureMetadata(data, callback) {
-    var lect = new LectureModel();
-    lect.courseId = data.name || 'Undefined';
-    lect.uuid = data.id;
-    lect.lectureDate = data.date = new Date();
-
-    lect.save(function(err, res) {
-        callback(err, data);
-    });
-}
-
-function sendEmail(data, callback) {
-    var email = data.email,
-        url = 'http://localhost:8000/scribe/lectures/' + data.id;
-
-    if (email) {
-        messaging.sendEmail(email, url, function(err, res) {
-            callback(err, data);
-        });
-    } else {
-        callback(null, data);
-    }
-}
-
 module.exports.uploadVideo = function(req, res) {
-    async.waterfall([
-        initWaterfall(req.files.video.path), // Inject the vid file path into waterfall
-        transcriber.transcribe, // Transcribe the video
-        function(lectureId, callback) {
-            callback(null, {
-                id: lectureId,
-                name: req.body.vname,
-                email: req.body.email,
-                phone: req.body.phone,
-                description: req.body.description
-            });
-        },
-        saveLectureMetadata, // Save the lecture metadata to mongo
-        sendEmail // Send a notification email to the user.
-    ], function(err, data) {
+    var lect = new LectureModel();
+    transcriber.transcribe(req.files.video.path, function (err, lectureId) {
         if (err) {
             res.send(err);
             res.end();
         } else {
+
+            lect.courseId = 'Undefined';
+            lect.uuid = lectureId;
+            lect.description = req.body.description;
+            lect.name = req.body.vname;
+            lect.uploadDate = new Date();
+
             res.render('upload', {
                 lecture: {
-                    vname: data.name,
-                    guid: data.id,
-                    date: data.date,
-                    description: data.description
+                    vname: lect.name,
+                    guid: lect.uuid,
+                    date: lect.uploadDate,
+                    description: lect.description
                 },
                 version: pkg.version
             });
+
+
         }
+    }, function (lectureId) {
+        // Save the lecture off.
+        async.series([
+            function (callback) {
+                lect.transcript = transcriber.readTranscript(lectureId);
+                lect.save(callback);
+            },
+            function (callback) {
+                // Send off the email.
+                var email = req.body.email,
+                    url = 'http://localhost:8000/scribe/lectures/' + lectureId;
+
+                if (email) {
+                    messaging.sendEmail(email, url, function (err, res) {
+                        callback(err);
+                    });
+                } else {
+                    callback();
+                }
+            }
+        ], function (err) { });
+
     });
 };
