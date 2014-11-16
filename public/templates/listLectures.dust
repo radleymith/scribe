@@ -12,6 +12,7 @@
                 <thead>
                     <tr>
                         <th width="20px"></th>
+                        <th width="20px"></th>
                         <th width="75px">Name</th>
                         <th width="300px">Upload Date</th>
                         <th width="300px">Confirmation</th>
@@ -21,7 +22,8 @@
                 <tbody>
                     {#lectures}
                         <tr>
-                            <td><a class="icon-link" href="{link}"><span class="glyphicon glyphicon-circle-arrow-right"></span></a></td>
+                            <td><a class="icon-link" href="{links.view}"><span class="glyphicon glyphicon-circle-arrow-right"></span></a></td>
+                            <td><a class="icon-link" href="{links.download}" target="_blank"><span class="glyphicon glyphicon-download-alt"></span></a></td>
                             <td>{name}</td>
                             <td>{uploadDate}</td>
                             <td>{uuid}</td>

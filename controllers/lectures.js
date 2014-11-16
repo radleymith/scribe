@@ -13,7 +13,10 @@ module.exports.getAllLectures = function (req, res) {
     LectureModel.find(filter, function (err, lectures) {
         var model = { version: pkg.version, model: { lectures: lectures }};
         model.model.lectures.forEach(function (lecture) {
-            lecture.link = 'http://localhost:8000/scribe/lectures/' + lecture.uuid;
+            lecture.links = {
+                view: 'http://localhost:8000/scribe/lectures/' + lecture.uuid,
+                download: 'http://localhost:8000/scribe/lectures/' + lecture.uuid + '/download'
+            };
         });
         res.render('listLectures', model);
     });
@@ -30,7 +33,6 @@ module.exports.getLectureByGuid = function (req, res) {
 module.exports.downloadLecture = function (req, res) {
     var lectureId = req.params.guid;
     LectureModel.findOne({uuid: lectureId}, function (err, lecture) {
-        console.log(lecture)
         var fileName = lecture.name.split(' ').join('_') + '.txt';
         res.set({
             "Content-Disposition": "attachment; filename=" + fileName,
