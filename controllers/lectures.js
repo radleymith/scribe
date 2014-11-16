@@ -42,15 +42,27 @@ module.exports.getLectureByGuid = function (req, res) {
     });
 };
 
-module.exports.updateLecture = function (req, res) {
-    // LectureModel.update({uuid: req.params.guid}, req.body, function (err, numAffected) {
-    //     res.status(200);
-    //     res.end();
-    // });
 
-    console.log('made it here');
-        res.status(200);
-        res.end();
+module.exports.updateLecture = function (req, res) {
+    LectureModel.find({uuid: req.params.guid}, function (err, lecture) {
+        var lecture = lecture[0],
+            origSegment = _.findWhere(lecture.transcript, {timeStamp: req.body.timestamp});
+
+        origSegment.text = req.body.newText;
+        console.log('>>>>>>>>>>>>>>>>>>')
+        console.log(JSON.stringify(lecture));
+
+        LectureModel.update({uuid: req.params.guid}, lecture, function (err, numAffected) {
+
+            console.log(err)
+            console.log(numAffected);
+            console.log('sumpins')
+            res.status(200);
+            res.end();
+        });
+    });
+
+
 
 };
 

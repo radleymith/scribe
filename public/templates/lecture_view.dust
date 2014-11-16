@@ -39,7 +39,7 @@
             </div>
         </div>
         {#lecture.transcript}
-            <div class="row">
+            <div class="row" id="segment-uuid">
                 <div class="col-md-2" id="lecture-timestamp-{lecture.uuid}">
                     {timeStamp}
                 </div>
@@ -50,11 +50,14 @@
                     <button type="button" id="edit-button-{lecture.uuid}" class="btn btn-default btn-sm">
                         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                     </button>
-                    <button type="button" id="save-button-{lecture.uuid}" class="btn btn-primary btn-sm" hidden disabled>
+                    <button type="button" id="save-button-{lecture.uuid}" class="btn btn-primary btn-sm" hidden>
                         <span>Save</span>
                     </button>
                 </div>
             </div>
         {/lecture.transcript}
     </div>
+    {<scriptIncludes}
+        <script type="text/javascript" src="/scribe/js/lecture.js"></script>
+    {/scriptIncludes}
 {/body}
