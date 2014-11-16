@@ -43,6 +43,13 @@ module.exports.getLectureByGuid = function (req, res) {
     });
 };
 
+module.exports.updateLecture = function (req, res) {
+    LectureModel.update({uuid: req.params.guid}, req.body, function (err, numAffected) {
+        res.status(200);
+        res.end();
+    });
+};
+
 // module.exports.getLectureByGuidWithNotes = function (req, res) {
 //     LectureModel.findById(req.id, function (err, lecture) {
 //         if (!err) {
