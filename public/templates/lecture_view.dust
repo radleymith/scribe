@@ -14,6 +14,9 @@
             <div class="col-md-1">
                 <h5>Timestamp</h5>
             </div>
+            <div class="col-md-1">
+                <h5>Edit</Edit>
+            </div>
             <div class="col-md-8">
                 <h5>Lecture Text</h5>
             </div>
@@ -22,6 +25,9 @@
             <div class="row">
                 <div class="col-md-1">
                     {timeStamp}
+                </div>
+                <div class="col-md-1">
+                    <<button type="button" class="btn btn-primary btn-sm">Edit</button>
                 </div>
                 <div class="col-md-8">
                     {text}
