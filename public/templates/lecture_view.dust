@@ -39,18 +39,21 @@
             </div>
         </div>
         {#lecture.transcript}
-            <div class="row" id="segment-uuid">
+            <div class="row lecture-transcript-block" id="segment-{lecture.uuid}">
                 <div class="col-md-2" id="lecture-timestamp-{lecture.uuid}">
                     {timeStamp}
                 </div>
-                <div class="col-md-8" id="lecture-text-div-{lecture.uuid}">
+                <div class="col-md-8 lecture-text-static" id="lecture-text-div-{lecture.uuid}">
                     {text}
                 </div>
+                <div class="col-md-8 lecture-text-input">
+                    <textarea id="lecture-edit-{lecture.uuid}">{text}</textarea>
+                </div>
                 <div class="col-md-2">
-                    <button type="button" id="edit-button-{lecture.uuid}" class="btn btn-default btn-sm">
+                    <button type="button" id="edit-button-{lecture.uuid}" class="btn btn-default btn-sm edit-button">
                         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                     </button>
-                    <button type="button" id="save-button-{lecture.uuid}" class="btn btn-primary btn-sm" hidden>
+                    <button type="button" id="save-button-{lecture.uuid}" class="btn btn-primary btn-sm save-button">
                         <span>Save</span>
                     </button>
                 </div>

@@ -22,28 +22,70 @@
         clear: both;
     }
 }
+
 .lecture-timestamp {
-  width: 200px;
-  display: inline-block;
-  margin-left: 10px;
-  margin-right: 2px;
-}
-.lecture-timestamp {
+    width: 200px;
+    display: inline-block;
+    margin-left: 10px;
+    margin-right: 2px;
     vertical-align: top;
     position: absolute;
     top: 0;
 }
+
 .lecture-segment-text {
   width: 828px;
   display: inline-block;
   margin-left: 0px;
   margin-right: 10px;
 }
+
+.lecture-transcript-block {
+    .lecture-text-static {
+        display: block;
+    }
+
+    .lecture-text-input {
+        display: none;
+
+        textarea {
+            width: 100%;
+        }
+    }
+
+    .edit-button {
+        display: block;
+    }
+
+    .save-button {
+        display: none;
+    }
+
+    &.row-edit {
+        .lecture-text-static {
+            display: none;
+        }
+
+        .lecture-text-input {
+            display: block;
+        }
+
+        .edit-button {
+            display: none;
+        }
+
+        .save-button {
+            display: block;
+        }
+    }
+}
+
 input.lecture-audio {
   border: none;
   cursor: pointer;
   vertical-align: middle;
 }
+
 .unstyled {
     list-style: none;
 }
