@@ -52,7 +52,7 @@ module.exports.updateLecture = function (req, res) {
         console.log('>>>>>>>>>>>>>>>>>>')
         console.log(JSON.stringify(lecture));
 
-        LectureModel.update({uuid: req.params.guid}, lecture, function (err, numAffected) {
+        LectureModel.update({uuid: req.params.guid}, {$set: {transcript: lecture.transcript}}, function (err, numAffected) {
 
             console.log(err)
             console.log(numAffected);
