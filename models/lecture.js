@@ -1,6 +1,7 @@
 'use strict';
 
-var mongoose = require('mongoose');
+var mongoose = require('mongoose'),
+    mongooseTextSearch = require('mongoose-text-search');
 
 var schema = mongoose.Schema({
     courseId: String,
@@ -10,6 +11,12 @@ var schema = mongoose.Schema({
     uploadDate: Date,
     categories: [String],
     transcript: Array
+});
+
+schema.plugin(mongooseTextSearch);
+schema.index({
+    name: 'text',
+    description: 'text'
 });
 
 module.exports = mongoose.model('Lecture', schema);
