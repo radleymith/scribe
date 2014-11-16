@@ -14,6 +14,7 @@ $(document).ready(function() {
         var svBtn = $(this),
             id = svBtn.attr('id'),
             regex = /save-button-/,
+            guid = $('#uuid-block').text(),
             uuid = id.replace(regex, ''),
             segmentRow = $('#segment-' + uuid),
             timestamp = $('#lecture-timestamp-' + uuid).text(),
@@ -23,7 +24,7 @@ $(document).ready(function() {
 
         $.ajax({
             type: "POST",
-            url: '/scribe/lectures/'+uuid,
+            url: '/scribe/lectures/'+guid,
             data: {
                 timestamp: timestamp,
                 newText: newText

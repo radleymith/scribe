@@ -14,7 +14,7 @@
         </div>
         <div class="data-block">
             <label>Confirmation Number:</label>{~s}
-            <span>{lecture.uuid}</span>
+            <span id="uuid-block">{lecture.uuid}</span>
         </div>
         <div class="data-block">
             <label>Uploaded:</label>{~s}
