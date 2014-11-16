@@ -6,11 +6,20 @@
 
 {<body}
     <div class="container-fluid">
+        <h2>Browse Lectures</h2>
+
+        <ul class="nav nav-pills">
+            {#categories}
+                <li role="presentation" class="{?isSelected}active{/isSelected}"><a href="http://localhost:8000/scribe/lectures?category={code}">{name}</a></li>
+            {/categories}
+        </ul>
+
         {#model}
-            <h2>Browse Lectures</h2>
+
             <table class="table table-striped table-hover">
                 <thead>
                     <tr>
+                        <th width="20px"></th>
                         <th width="20px"></th>
                         <th width="75px">Name</th>
                         <th width="300px">Upload Date</th>
@@ -21,7 +30,8 @@
                 <tbody>
                     {#lectures}
                         <tr>
-                            <td><a class="icon-link" href="{link}"><span class="glyphicon glyphicon-circle-arrow-right"></span></a></td>
+                            <td><a class="icon-link" href="{links.view}"><span class="glyphicon glyphicon-circle-arrow-right"></span></a></td>
+                            <td><a class="icon-link" href="{links.download}" target="_blank"><span class="glyphicon glyphicon-download-alt"></span></a></td>
                             <td>{name}</td>
                             <td>{uploadDate}</td>
                             <td>{uuid}</td>
