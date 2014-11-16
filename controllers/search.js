@@ -6,6 +6,12 @@ var LectureModel = require('../models/lecture'),
     _ = require('underscore');
 
 module.exports.search = function (req, res) {
+
+    if (!req.body.q) {
+        res.redirect('/scribe/lectures');
+        return;
+    }
+
     LectureModel.textSearch(req.body.q, function (err, response) {
 
         var model = { version: pkg.version, model: {}, categories: lectureCategories };
