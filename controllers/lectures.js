@@ -33,7 +33,9 @@ module.exports.getAllLectures = function (req, res) {
 module.exports.getLectureByGuid = function (req, res) {
     LectureModel.findById(req.id, function (err, lecture) {
         if (!err) {
-            res.render('text_view', {version: pkg.version, lecture: lecture});
+            res.render('lecture_view', {version: pkg.version, lecture: lecture[0]});
+        }else {
+            res.render('no_lecture_view', {version: pkg.version, lecture_id: req.params.guid});
         }
     });
 };

@@ -1,0 +1,21 @@
+{<headerIncludes}
+    <link rel="stylesheet" href="/scribe/css/index.css"></link>
+{/headerIncludes}
+
+{<body}
+    <div class="navbar">
+        <h1 class="navbar-text">Scribe</p>
+    </div>
+    <div id="sorry-div">
+        <h2>404 Error!</h2>
+        <p>
+            Sorry lecture number {lecture_id} has either not been processed yet or is not in the system.
+        </p>
+    </div>
+
+    <div id="footer">
+        <ul>
+            <li>Scribe v.{version} </li>
+        </ul>
+    </div>
+{/body}

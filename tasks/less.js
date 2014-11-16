@@ -16,7 +16,8 @@ module.exports = function less(grunt) {
                 'public/css/index.css': 'public/css/index.less',
 				'public/css/global.css': 'public/css/global.less',
 				'public/css/upload.css': 'public/css/upload.less',
-				'public/css/list-lectures.css': 'public/css/list-lectures.less'
+                'public/css/lecture.css': 'public/css/lecture.less',
+                'public/css/list-lectures.css': 'public/css/list-lectures.less'
             }
 	    }
 	};
