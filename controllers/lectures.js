@@ -44,10 +44,15 @@ module.exports.getLectureByGuid = function (req, res) {
 };
 
 module.exports.updateLecture = function (req, res) {
-    LectureModel.update({uuid: req.params.guid}, req.body, function (err, numAffected) {
+    // LectureModel.update({uuid: req.params.guid}, req.body, function (err, numAffected) {
+    //     res.status(200);
+    //     res.end();
+    // });
+
+    console.log('made it here');
         res.status(200);
         res.end();
-    });
+
 };
 
 // module.exports.getLectureByGuidWithNotes = function (req, res) {

@@ -26,15 +26,18 @@
         </div>
         {#lecture.transcript}
             <div class="row">
-                <div class="col-md-2" id="lecture-text-div-{lecture.uuid}">
+                <div class="col-md-2" id="lecture-timestamp-{lecture.uuid}">
                     {timeStamp}
                 </div>
-                <div class="col-md-8">
+                <div class="col-md-8" id="lecture-text-div-{lecture.uuid}">
                     {text}
                 </div>
                 <div class="col-md-2">
                     <button type="button" id="edit-button-{lecture.uuid}" class="btn btn-default btn-sm">
                         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                    </button>
+                    <button type="button" id="save-button-{lecture.uuid}" class="btn btn-primary btn-sm" hidden disabled>
+                        <span>Save</span>
                     </button>
                 </div>
             </div>
