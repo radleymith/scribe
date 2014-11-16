@@ -5,10 +5,6 @@ var LectureModel = require('../models/lecture'),
     pkg = require('../package'),
     _ = require('underscore');
 
-module.exports.searchPage = function (req, res) {
-    res.render('search');
-};
-
 module.exports.search = function (req, res) {
     LectureModel.textSearch(req.body.q, function (err, response) {
 

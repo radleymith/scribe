@@ -14,11 +14,10 @@ module.exports = function(server) {
         });
     });
 
-    server.get('/search', searchController.searchPage);
     server.post('/upload', uploadController.uploadVideo);
     server.get('/lectures', lectureController.getAllLectures);
     server.get('/lectures/:guid', lectureController.getLectureByGuid);
-    server.post('/lecture-search', searchController.search);
+    server.post('/search', searchController.search);
     server.post('/lectures/:guid', lectureController.updateLecture);
     server.get('/lectures/:guid/download', lectureController.downloadLecture);
 };
