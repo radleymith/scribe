@@ -25,7 +25,6 @@ module.exports.getAllLectures = function (req, res) {
             cat.isSelected = filter.categories === cat.code;
             return cat;
         });
-
         res.render('listLectures', model);
     });
 };
