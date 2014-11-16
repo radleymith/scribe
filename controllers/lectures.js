@@ -33,7 +33,7 @@ module.exports.getLectureByGuid = function (req, res) {
     LectureModel.find({uuid: req.params.guid}, function (err, lecture) {
         if (!err && lecture.length > 0) {
             lecture[0].links = {
-                download: 'http://localhost:8000/scribe/lectures/' + lecture.uuid + '/download'
+                download: 'http://localhost:8000/scribe/lectures/' + lecture[0].uuid + '/download'
             };
             res.render('lecture_view', {version: pkg.version, lecture: lecture[0]});
         }else {
