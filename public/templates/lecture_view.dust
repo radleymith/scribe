@@ -1,16 +1,30 @@
 {>"layouts/master" /}
-{<title}Scribe - View a Lecture{/title}
+{<title}Scribe - Viewing Lecture {lecture.name}{/title}
 {<headerIncludes}
-    <link rel="stylesheet" href="/scribe/css/index.css"></link>
     <link rel="stylesheet" href="/scribe/css/lecture.css"></link>
 {/headerIncludes}
 
 {<body}
-    <div class="navbar">
-        <h1 class="navbar-text">Scribe</p>
-    </div>
-    <div class="spacer-for-download-link">
-        <a class="icon-link" id="download-lecture" href="{lecture.links.download}" target="_blank"><span class="glyphicon glyphicon-download-alt"></span></a>
+    <div id="information-block" class="well">
+        <h2 class="pull-left name-block">{lecture.name}</h2>
+        <div class="pull-left download-block">
+            <a class="icon-link" id="download-lecture" href="{lecture.links.download}" target="_blank">
+                <span class="glyphicon glyphicon-download-alt"></span>
+            </a>
+        </div>
+        <div class="col-md-8 clearfix">
+            <label>Confirmation Number:</label>{~s}
+            <span>{lecture.uuid}</span>
+        </div>
+        <div class="col-md-8">
+            <label>Uploaded:</label>{~s}
+            <span>{lecture.uploadDate}</span>
+        </div>
+        <div class="col-md-8">
+            <label>Description:</label>{~s}
+            <span>{lecture.description}</span>
+        </div>
+        <div class="clearfix"></div>
     </div>
     <div class="container">
         <div class="row">
@@ -39,11 +53,5 @@
                 </div>
             </div>
         {/lecture.transcript}
-    </div>
-
-    <div id="footer">
-        <ul>
-            <li>Scribe v.{version} </li>
-        </ul>
     </div>
 {/body}
