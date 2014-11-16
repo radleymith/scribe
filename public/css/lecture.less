@@ -1,6 +1,26 @@
-#lecture-container {
-  width: 1050px;
-  display: inline;
+@import "variables";
+
+#information-block {
+    width: 700px;
+    margin: 15px auto;
+
+    .name-block {
+        width: 200px;
+    }
+
+    .download-block {
+        margin-top: 30px;
+        margin-left: 15px;
+        width: 20px;
+
+        a {
+            color: @black;
+        }
+    }
+
+    .clearfix {
+        clear: both;
+    }
 }
 .lecture-timestamp {
   width: 200px;
