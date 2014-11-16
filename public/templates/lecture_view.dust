@@ -10,29 +10,29 @@
         <h1 class="navbar-text">Scribe</p>
     </div>
     <div class="spacer-for-download-link">
-        <a class="icon-link" id="download-lecture" href="{links.download}" target="_blank"><span class="glyphicon glyphicon-download-alt"></span></a>
+        <a class="icon-link" id="download-lecture" href="{lecture.links.download}" target="_blank"><span class="glyphicon glyphicon-download-alt"></span></a>
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-md-1">
+            <div class="col-md-2">
                 <h5>Timestamp</h5>
             </div>
             <div class="col-md-8">
                 <h5>Lecture Text</h5>
             </div>
-            <div class="col-md-1">
+            <div class="col-md-2">
                 <h5>Edit</Edit>
             </div>
         </div>
         {#lecture.transcript}
             <div class="row">
-                <div class="col-md-1">
+                <div class="col-md-2">
                     {timeStamp}
                 </div>
                 <div class="col-md-8">
-                    <textarea id="lecture-text-{uuid}" disabled>{text}</textarea>
+                    {text}
                 </div>
-                <div class="col-md-1">
+                <div class="col-md-2">
                     <button type="button" id="edit-button-{uuid}" class="btn btn-default btn-sm">
                         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                     </button>
