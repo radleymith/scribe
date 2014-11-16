@@ -6,8 +6,16 @@
 
 {<body}
     <div class="container-fluid">
+        <h2>Browse Lectures</h2>
+
+        <ul class="nav nav-pills">
+            {#categories}
+                <li role="presentation" class="{?isSelected}active{/isSelected}"><a href="http://localhost:8000/scribe/lectures?category={code}">{name}</a></li>
+            {/categories}
+        </ul>
+
         {#model}
-            <h2>Browse Lectures</h2>
+
             <table class="table table-striped table-hover">
                 <thead>
                     <tr>

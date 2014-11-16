@@ -2,6 +2,8 @@
 
 var LectureModel = require('../models/lecture'),
     pkg = require('../package.json'),
+    lectureCategories = require('../models/lectureCategories'),
+    _ = require('underscore'),
     fs = require('fs');
 
 module.exports.getAllLectures = function (req, res) {
@@ -18,6 +20,12 @@ module.exports.getAllLectures = function (req, res) {
                 download: 'http://localhost:8000/scribe/lectures/' + lecture.uuid + '/download'
             };
         });
+
+        model.categories = _.map(lectureCategories, function (cat) {
+            cat.isSelected = filter.categories === cat.code;
+            return cat;
+        });
+
         res.render('listLectures', model);
     });
 };
