@@ -13,15 +13,19 @@
         <h1 class="navbar-text"><a href="/scribe">Scribe</a></h1>
         <a href="/scribe" class="btn btn-link btn-sm navbar-btn">Home</a>
         <a href="/scribe/lectures" class="btn btn-link btn-sm navbar-btn">Browse Video Transcripts</a>
-        <div>
-            <form role="form" action="/scribe/search" method="post" enctype="multipart/form-data">
-                <label for="search">Search</label>
-                <input type="text" name="q" id="search-input" />
+        <form role="form" class="navbar-form navbar-right" id="search-form" action="/scribe/search" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <div class="input-group">
+                    <input type="text" name="q" id="search-input" class="form-control input-sm" placeholder="Search" />
+                    <div class="input-group-addon" id="search-btn">
+                        <button type="submit">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
 
-                <button type="submit" class="btn btn-primary pull-right">Search</button>
-                <div class="clearfix"></div>
-            </form>
-        </div>
+        </form>
     </div>
     <div id="header-block"></div>
     {+body /}

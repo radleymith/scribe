@@ -7,20 +7,20 @@
 {<body}
     <div id="information-block" class="well">
         <h2 class="pull-left name-block">{lecture.name}</h2>
-        <div class="pull-left download-block">
-            <a class="icon-link" id="download-lecture" href="{lecture.links.download}" target="_blank">
+        <div class="data-block">
+            <a class="pull-right" id="download-lecture" href="{lecture.links.download}" target="_blank">
                 <span class="glyphicon glyphicon-download-alt"></span>
             </a>
         </div>
-        <div class="col-md-8 clearfix">
+        <div class="data-block">
             <label>Confirmation Number:</label>{~s}
             <span>{lecture.uuid}</span>
         </div>
-        <div class="col-md-8">
+        <div class="data-block">
             <label>Uploaded:</label>{~s}
             <span>{lecture.uploadDate}</span>
         </div>
-        <div class="col-md-8">
+        <div class="data-block">
             <label>Description:</label>{~s}
             <span>{lecture.description}</span>
         </div>
