@@ -47,17 +47,35 @@ module.exports.uploadVideo = function(req, res) {
                 lect.save(callback);
             },
             function (callback) {
-                // Send off the email.
-                var email = req.body.email,
-                    url = 'http://localhost:8000/scribe/lectures/' + lectureId;
+                var url = 'http://localhost:8000/scribe/lectures/' + lectureId;
+                async.parallel([
+                    function () {
+                        // Send off the email.
+                        var email = req.body.email;
 
-                if (email) {
-                    messaging.sendEmail(email, url, function (err, res) {
-                        callback(err);
-                    });
-                } else {
-                    callback();
-                }
+                        if (email) {
+                            messaging.sendEmail(email, url, function (err, res) {
+                                callback();
+                            });
+                        } else {
+                            callback();
+                        }
+                    },
+                    function () {
+                        // Send off the text.
+                        var phone = req.body.phone;
+
+                        if (phone) {
+                            messaging.sendText(phone, url, function (err, res) {
+                                console.log("Done: ", err, res);
+                                callback();
+                            });
+                        } else {
+                            callback();
+                        }
+                    }
+                ], callback);
+
             }
         ], function (err) { });
 

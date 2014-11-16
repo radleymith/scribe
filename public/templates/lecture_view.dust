@@ -1,24 +1,33 @@
+{>"layouts/master" /}
+{<title}Scribe - View a Lecture{/title}
 {<headerIncludes}
     <link rel="stylesheet" href="/scribe/css/index.css"></link>
+    <link rel="stylesheet" href="/scribe/css/lecture.css"></link>
 {/headerIncludes}
 
 {<body}
     <div class="navbar">
         <h1 class="navbar-text">Scribe</p>
     </div>
-    <div id="lecture-container" class="well well-lg">
-        <ul id="lecture-segment-list">
-            {#lecture_segments}
-                <li>
-                    <div class="lecture-timestamp">
-                        {lecture_segment.timestamp}
-                    </div>
-                    <div class="lecture-segment-text">
-                        {lecture_segment.segment_text}
-                    </div>
-                </li>
-            {/lecture_segments}
-        </ul>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-1">
+                <h5>Timestamp</h5>
+            </div>
+            <div class="col-md-8">
+                <h5>Lecture Text</h5>
+            </div>
+        </div>
+        {#lecture.transcript}
+            <div class="row">
+                <div class="col-md-1">
+                    {timeStamp}
+                </div>
+                <div class="col-md-8">
+                    {text}
+                </div>
+            </div>
+        {/lecture.transcript}
     </div>
 
     <div id="footer">

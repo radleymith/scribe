@@ -1,19 +1,29 @@
-@import "variables";
-
 #lecture-container {
-    width: 950px
+  width: 1050px;
+  display: inline;
 }
-
 .lecture-timestamp {
-    width: 100px;
-    display: inline-block;
-    margin-left: 10px;
-    margin-right: 2px;
+  width: 200px;
+  display: inline-block;
+  margin-left: 10px;
+  margin-right: 2px;
 }
-
+.lecture-timestamp {
+    vertical-align: top;
+    position: absolute;
+    top: 0;
+}
 .lecture-segment-text {
-    width: 828px;
-    display: inline-block;
-    margin-left: 0px;
-    margin-right: 10px;
+  width: 828px;
+  display: inline-block;
+  margin-left: 0px;
+  margin-right: 10px;
+}
+input.lecture-audio {
+  border: none;
+  cursor: pointer;
+  vertical-align: middle;
+}
+.unstyled {
+    list-style: none;
 }
