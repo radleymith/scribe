@@ -32,13 +32,23 @@ module.exports.getAllLectures = function (req, res) {
 
 module.exports.getLectureByGuid = function (req, res) {
     LectureModel.findById(req.id, function (err, lecture) {
-        if (!err) {
+        if (!err && lecture.length > 0) {
             res.render('lecture_view', {version: pkg.version, lecture: lecture[0]});
         }else {
             res.render('no_lecture_view', {version: pkg.version, lecture_id: req.params.guid});
         }
     });
 };
+
+// module.exports.getLectureByGuidWithNotes = function (req, res) {
+//     LectureModel.findById(req.id, function (err, lecture) {
+//         if (!err) {
+//             res.render('lecture_view', {version: pkg.version, lecture: lecture[0]});
+//         }else {
+//             res.render('no_lecture_view', {version: pkg.version, lecture_id: req.params.guid});
+//         }
+//     });
+// }
 
 module.exports.downloadLecture = function (req, res) {
     var lectureId = req.params.guid;

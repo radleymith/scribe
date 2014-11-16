@@ -14,6 +14,9 @@
             <div class="col-md-1">
                 <h5>Timestamp</h5>
             </div>
+            <div class="col-md-1">
+                <h5>Edit</Edit>
+            </div>
             <div class="col-md-8">
                 <h5>Lecture Text</h5>
             </div>
@@ -23,8 +26,33 @@
                 <div class="col-md-1">
                     {timeStamp}
                 </div>
+                <div class="col-md-1">
+                    <button type="button" class="btn btn-primary btn-sm edit-button" data-toggle="modal" data-target="#modal-{uuid}">Add Note</button>
+                </div>
                 <div class="col-md-8">
-                    {text}
+                    <span id="lecture-text-{uuid}">{text}</span>
+                    <div class="modal fade" id="modal-{uuid}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                    <h4 class="modal-title" id="myModalLabel">Add a note</h4>
+                                </div>
+                                <div class="modal-body">
+                                    ...
+                                 </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-1">
+                    <button type="button" id="edit-button-{uuid}" class="btn btn-default btn-sm">
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                    </button>
                 </div>
             </div>
         {/lecture.transcript}
