@@ -1,1 +1,3 @@
-$('#edit-lecture-')
+$('[id^=jander]').on('click', function () {
+
+})
